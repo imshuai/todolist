@@ -1,0 +1,7 @@
+{
+    "AppName":"待办事项",
+    "ListenAddress":"127.0.0.1",
+    "ListenPort":2468,
+    "Debug":true,
+    "DBPath":"missions.db"
+}

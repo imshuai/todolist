@@ -13,7 +13,7 @@ var (
 
 func dbInit() error {
 	var err error
-	db, err = bolt.Open("missions.db", os.ModePerm, &bolt.Options{
+	db, err = bolt.Open(config.DBPath, os.ModePerm, &bolt.Options{
 		Timeout: time.Second * 10,
 	})
 	if err != nil {

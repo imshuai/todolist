@@ -9,6 +9,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+type msg struct {
+	StatusCode int         `json:"status_code"`
+	StatusMsg  string      `json:"status_msg"`
+	Data       interface{} `json:"data"`
+}
+
 func init() {
 	err := config.Read("config.json")
 	if err != nil {
@@ -41,7 +47,7 @@ func main() {
 	e.GET("/mission/:id", handleMission)
 	e.POST("/mission", handleNewMission)
 	e.DELETE("/mission/:id", handleDeleteMission)
-	e.PATCH("/mission/:id", handleChangeMission)
+	e.PATCH("/mission/:id", handleNewMission)
 
 	e.Run(net.JoinHostPort(config.ListenAddress, strconv.Itoa(config.ListenPort)))
 	return
